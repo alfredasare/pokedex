@@ -4,12 +4,13 @@ import Loader from "../../components/loader/loader";
 import Layout from "../../components/layout/Layout";
 import DetailsCard from "../../components/details-card/detailsCard";
 import {PokemonDetailsContext} from "../../context/PokemonDetailsProvider";
+import ErrorPage from "../../components/error-page/error-page";
 
 const PokemonName: FC = () => {
     const router = useRouter();
     const {pokemonName} = router.query;
 
-    const {isLoading, pokemon, fetchPokemonDetails} = useContext(PokemonDetailsContext);
+    const {isLoading, pokemon, fetchPokemonDetails, error} = useContext(PokemonDetailsContext);
 
     useEffect(() => {
         if (pokemonName) {
@@ -19,6 +20,10 @@ const PokemonName: FC = () => {
 
     if (isLoading) {
         return <Loader />;
+    }
+
+    if (error) {
+        return <ErrorPage />;
     }
 
     return (

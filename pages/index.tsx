@@ -7,20 +7,24 @@ import PaginationButtons from "../components/pagination-buttons/pagination-butto
 import Search from "../components/search/search";
 import {SearchContext} from "../context/SearchProvider";
 import {PokemonsContext} from "../context/PokemonsProvider";
+import ErrorPage from "../components/error-page/error-page";
 
 const Home: FC = () => {
-    const {loading, pokemonData, nextPage, previousPage, offset} = useContext(PokemonsContext);
+    const {loading, pokemonData, nextPage, previousPage, offset, error} = useContext(PokemonsContext);
     const {searchQuery} = useContext(SearchContext);
 
     if (loading) {
         return <Loader />
     }
 
+    if (error) {
+        return <ErrorPage />
+    }
+
     return (
         <Layout title="All Pokemons">
             <div className="min-h-screen">
                 <Header />
-
                 <Search />
 
                 {
