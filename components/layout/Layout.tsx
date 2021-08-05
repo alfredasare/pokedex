@@ -1,6 +1,7 @@
+import {ReactChild} from "react";
 import Head from "next/head";
 
-const Layout = ({children, title}) => {
+const Layout = ({children, title}: {children: ReactChild, title: string}) => {
     return (
         <div className="bg-gray-50">
             <Head>
