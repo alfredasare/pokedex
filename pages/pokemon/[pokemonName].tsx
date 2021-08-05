@@ -16,6 +16,8 @@ const PokemonName: FC = () => {
         if (pokemonName) {
             fetchPokemonDetails(pokemonName);
         }
+
+    // eslint-disable-next-line
     }, [pokemonName])
 
     if (isLoading) {

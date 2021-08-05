@@ -3,7 +3,7 @@ type Species = {
     url: string
 }
 
-type Type = {
+export type Type = {
     slot: number
     type: {
         name: string
@@ -11,9 +11,11 @@ type Type = {
     }
 }
 
-type Move = {
-    name: string
-    url: string
+export type Move = {
+    move: {
+        name: string
+        url: string
+    }
 }
 
 export type Stat = {

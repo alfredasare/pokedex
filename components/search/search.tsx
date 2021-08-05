@@ -31,7 +31,7 @@ const Search: FC = () => {
             {
                 searchQuery.length >= 3 &&
                 <div>
-                    <h1 className="text-center mt-8 text-lg">Search Results for "{searchQuery}"</h1>
+                    <h1 className="text-center mt-8 text-lg">Search Results for {`"${searchQuery}"`}</h1>
                 </div>
             }
 

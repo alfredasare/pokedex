@@ -1,8 +1,7 @@
 import {v4} from "uuid";
-import DataPills from "../data-pills/dataPills";
-import {PokemonDetails, Stat} from "../../types/pokemons";
+import {Move, PokemonDetails, Stat, Type} from "../../types/pokemons";
 
-const DetailsCard = ({pokemon}: {pokemon:PokemonDetails}) => {
+const DetailsCard = ({pokemon}: { pokemon: PokemonDetails }) => {
 
     return (
         <div className="py-36">
@@ -20,7 +19,8 @@ const DetailsCard = ({pokemon}: {pokemon:PokemonDetails}) => {
                     <div className="mb-4 mt-3 grid grid-cols-3">
                         {
                             pokemon.stats?.map((stat: Stat) => (
-                                <div key={v4()} className="flex flex-col justify-center bg-gray-200 px-2 py-1 shadow w-1/4 text-center rounded-lg mb-3 w-3/4">
+                                <div key={v4()}
+                                     className="flex flex-col justify-center bg-gray-200 px-2 py-1 shadow w-1/4 text-center rounded-lg mb-3 w-3/4">
                                     <p className="text-sm font-bold capitalize">{stat.stat.name}</p>
                                     <p className="text-lg mt-2 text-gray-800">{stat.base_stat}</p>
                                 </div>
@@ -29,13 +29,36 @@ const DetailsCard = ({pokemon}: {pokemon:PokemonDetails}) => {
                     </div>
 
                     <h2 className="text-lg font-bold mb-3">Types</h2>
-                    <DataPills data={pokemon.types} property="type" />
+                    <div className="flex flex-wrap mb-4">
+                        {
+                            pokemon.types?.map((type: Type) => (
+                                <span
+                                    key={v4()}
+                                    className="mr-3 mb-5 text-sm bg-gray-200 text-black px-3 py-1 rounded-full text-center capitalize"
+                                >
+                                    {type.type.name}
+                                </span>
+                            ))
+                        }
+                    </div>
 
                     <h2 className="text-lg font-bold">Weight</h2>
                     <p className="text-lg mb-4">{pokemon.weight} lbs</p>
 
                     <h2 className="text-lg font-bold mb-3">Moves</h2>
-                    <DataPills data={pokemon.moves?.slice(0, 12)} property="move" />
+                    <div className="flex flex-wrap mb-4">
+                        {
+                            pokemon.moves?.slice(0, 12)?.map((move: Move) => (
+
+                                <span
+                                    key={v4()}
+                                    className="mr-3 mb-5 text-sm bg-gray-200 text-black px-3 py-1 rounded-full text-center capitalize"
+                                >
+                                    {move.move.name}
+                                </span>
+                            ))
+                        }
+                    </div>
 
                 </div>
             </div>
