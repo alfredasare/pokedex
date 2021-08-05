@@ -1,13 +1,20 @@
 import {v4} from "uuid";
 import PokemonCard from "../pokemon-card/pokemonCard";
+import {Pokemon} from "../../types/pokemons";
+import {FC} from "react";
 
-const PokemonList = ({pokemons, offset}) => {
+interface IProps {
+    pokemons: Pokemon[]
+    offset: number
+}
+
+const PokemonList: FC<IProps> = ({pokemons, offset}) => {
 
     return (
         <div className="grid grid-cols-4 gap-10 mt-16">
             {
-                pokemons?.map((pokemon, index) => (
-                    <PokemonCard id={index+1+offset} key={v4()} pokemon={pokemon}/>
+                pokemons?.map((pokemon: Pokemon, index: number) => (
+                    <PokemonCard id={index+offset+1} key={v4()} pokemon={pokemon}/>
                 ))
             }
         </div>

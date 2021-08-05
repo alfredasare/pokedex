@@ -1,7 +1,13 @@
 import Link from "next/link";
-import {useEffect} from "react";
+import {FC, useEffect} from "react";
+import {Pokemon} from "../../types/pokemons";
 
-const PokemonCard = ({id, pokemon}) => {
+interface IProps {
+    id: number | undefined
+    pokemon: Pokemon
+}
+
+const PokemonCard: FC<IProps> = ({id, pokemon}) => {
     const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
     return (
