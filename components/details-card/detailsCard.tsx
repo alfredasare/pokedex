@@ -16,11 +16,13 @@ const DetailsCard = ({pokemon}: { pokemon: PokemonDetails }) => {
                     <p className="text-lg mb-4 capitalize">{pokemon.species?.name}</p>
 
                     <h2 className="text-lg font-bold">Base Stats</h2>
-                    <div className="mb-4 mt-3 grid grid-cols-3">
+                    <div role="list" className="mb-4 mt-3 grid grid-cols-3">
                         {
                             pokemon.stats?.map((stat: Stat) => (
-                                <div key={v4()}
-                                     className="flex flex-col justify-center bg-gray-200 px-2 py-1 shadow w-1/4 text-center rounded-lg mb-3 w-3/4">
+                                <div
+                                    key={v4()}
+                                    role="listitem"
+                                    className="flex flex-col justify-center bg-gray-200 px-2 py-1 shadow w-1/4 text-center rounded-lg mb-3 w-3/4">
                                     <p className="text-sm font-bold capitalize">{stat.stat.name}</p>
                                     <p className="text-lg mt-2 text-gray-800">{stat.base_stat}</p>
                                 </div>
@@ -29,10 +31,11 @@ const DetailsCard = ({pokemon}: { pokemon: PokemonDetails }) => {
                     </div>
 
                     <h2 className="text-lg font-bold mb-3">Types</h2>
-                    <div className="flex flex-wrap mb-4">
+                    <div role="list" className="flex flex-wrap mb-4">
                         {
                             pokemon.types?.map((type: Type) => (
                                 <span
+                                    role="listitem"
                                     key={v4()}
                                     className="mr-3 mb-5 text-sm bg-gray-200 text-black px-3 py-1 rounded-full text-center capitalize"
                                 >
@@ -46,11 +49,12 @@ const DetailsCard = ({pokemon}: { pokemon: PokemonDetails }) => {
                     <p className="text-lg mb-4">{pokemon.weight} lbs</p>
 
                     <h2 className="text-lg font-bold mb-3">Moves</h2>
-                    <div className="flex flex-wrap mb-4">
+                    <div role="list" className="flex flex-wrap mb-4">
                         {
                             pokemon.moves?.slice(0, 12)?.map((move: Move) => (
 
                                 <span
+                                    role="listitem"
                                     key={v4()}
                                     className="mr-3 mb-5 text-sm bg-gray-200 text-black px-3 py-1 rounded-full text-center capitalize"
                                 >
