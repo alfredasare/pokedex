@@ -1,7 +1,6 @@
-import React, {createContext, useState, useEffect} from "react";
+import React, {createContext, useState} from "react";
 import {PokemonDetails} from "../types/pokemons";
 import {getData} from "../utils/getData";
-import {use} from "ast-types";
 
 export const PokemonDetailsContext = createContext({
     pokemon: {} as PokemonDetails,
